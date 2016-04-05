@@ -11,6 +11,9 @@
 #import "SVProgressHUD.h"
 #import "UIView+LZFrame.h"
 #import "NSString+Tools.h"
+#import <CoreData/CoreData.h>
+#import "LZURLEntity+CoreDataProperties.h"
+#import "AppDelegate.h"
 @interface LZScanViewController ()<AVCaptureMetadataOutputObjectsDelegate, UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *tipLabel;
 
@@ -48,11 +51,20 @@
     [self baseConfig];
     [self configiBlurViewMask];
     [self scanConfig];
-    [self.session startRunning];
-    [self beginAnimation];
     
     
 }
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self startScan];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self stopScan];
+}
+
 
 #pragma mark - configuration
 
@@ -154,6 +166,8 @@
 
 - (void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
+    self.view.y = 20;
+    
     self.maskLayer.bounds = self.blurView.bounds;
     self.maskLayer.position = self.blurView.center;
     
@@ -172,9 +186,7 @@
 #pragma mark - QRCode delegate
 
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection{
-    [self.session stopRunning];
-    [self endAnimation];
-    self.tipLabel.hidden = NO;
+    [self stopScan];
     if (metadataObjects.count <= 0) {
         [SVProgressHUD showErrorWithStatus:@"No QRCode"];
         return;
@@ -182,7 +194,7 @@
         
         AVMetadataMachineReadableCodeObject *item = [metadataObjects lastObject];
         self.showLabel.text = item.stringValue;
-        self.showLabel.hidden = NO;
+        
         [self handleURL:item.stringValue];
         }
 }
@@ -191,9 +203,42 @@
 - (void)handleURL:(NSString *)source{
     
     if ([source isURL]) {
-        [[UIApplication sharedApplication] openURL:[NSString HTTPURLFromString:source]];
+        NSURL *url = [NSString HTTPURLFromString:source];
+        
+        [self cacheURL:url.absoluteString];
+        
+        [[UIApplication sharedApplication] openURL:url];
     }
 }
+
+- (void)cacheURL:(NSString *)source{
+    
+    if ([self ifCached:source]) {
+        return;
+    }
+    AppDelegate *appD = [AppDelegate appDelegate];
+    NSManagedObjectContext *context = appD.managedObjectContext;
+    LZURLEntity *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"LZURLEntity" inManagedObjectContext:context];
+
+    newItem.urlDate = [NSDate date];
+    newItem.urlString = source;
+    
+    [appD saveContext];
+    
+}
+
+- (BOOL)ifCached:(NSString *)source{
+    
+    NSPredicate *pre = [NSPredicate predicateWithFormat:@"%K == %@", @"urlString", source];
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"LZURLEntity"];
+    request.predicate = pre;
+    NSArray *arrRes = [[AppDelegate appDelegate].managedObjectContext executeFetchRequest:request error:nil];
+    if (arrRes && arrRes.count > 0 ) {
+        return YES;
+    }
+    return NO;
+}
+
 
 #pragma mark - tipcontrol
 
@@ -201,10 +246,7 @@
     if (self.tipLabel.isHidden) {
         return;
     }else{
-        self.tipLabel.hidden = YES;
-        [self.session startRunning];
-        [self beginAnimation];
-        self.showLabel.hidden = YES;
+        [self startScan];
     }
 }
 
@@ -212,11 +254,27 @@
 
 - (void)beomeActiveAction:(NSNotification *)notif{
     
-    self.tipLabel.hidden = YES;
+    [self startScan];
+}
+
+#pragma mark - scan control
+
+- (void)startScan{
+    
     [self.session startRunning];
     [self beginAnimation];
+    self.tipLabel.hidden = YES;
     self.showLabel.hidden = YES;
+
 }
+
+- (void)stopScan{
+    [self.session stopRunning];
+    [self endAnimation];
+    self.tipLabel.hidden = NO;
+    self.showLabel.hidden = NO;
+}
+
 
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];

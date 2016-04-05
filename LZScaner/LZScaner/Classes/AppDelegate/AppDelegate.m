@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "LZTabBarViewController.h"
 #import "LZScanViewController.h"
+#import "LZURLTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,22 +17,31 @@
 
 @implementation AppDelegate
 
++ (instancetype)appDelegate{
+    
+    return [UIApplication sharedApplication].delegate ;
+}
 
 - (void)loadMainFrame{
     
     LZTabBarViewController *tabVC = [[LZTabBarViewController alloc] init];
     
     LZScanViewController *vc1 = [LZScanViewController scanerViewController];
-    
     vc1.view.backgroundColor = [UIColor lightGrayColor];
-    vc1.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"扫描" image:nil selectedImage:nil];
     
+    UINavigationController *navC1 = [[UINavigationController alloc] initWithRootViewController:vc1];
+    navC1.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"扫描" image:nil selectedImage:nil];
     
-    UIViewController *vc2 = [[UIViewController alloc] init];
-    vc2.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"历史" image:nil selectedImage:nil];
+    LZURLTableViewController *vc2 = [LZURLTableViewController urlTableViewController];
+   
+   
     vc2.view.backgroundColor = [UIColor darkGrayColor];
     
-    tabVC.viewControllers = @[vc1, vc2];
+    UINavigationController *navC2 = [[UINavigationController alloc] initWithRootViewController:vc2];
+    navC2.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"历史" image:nil selectedImage:nil];
+    
+    
+    tabVC.viewControllers = @[navC1, navC2];
     
     
     self.window.rootViewController = tabVC;
@@ -102,10 +112,14 @@
     // Create the coordinator and store
     
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"LZScaner.sqlite"];
+    NSURL *storeURL = [NSURL fileURLWithPath:[self sqlitePath]];
     NSError *error = nil;
     NSString *failureReason = @"There was an error creating or loading the application's saved data.";
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+    NSMutableDictionary *options = [NSMutableDictionary dictionary];
+    options[NSMergeByPropertyStoreTrumpMergePolicy] = @(YES);
+    options[NSInferMappingModelAutomaticallyOption] = @(YES);
+    
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error]) {
         // Report any error we got.
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         dict[NSLocalizedDescriptionKey] = @"Failed to initialize the application's saved data";
@@ -121,6 +135,11 @@
     return _persistentStoreCoordinator;
 }
 
+- (NSString *)sqlitePath{
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+    
+    return [path stringByAppendingPathComponent:@"urlHistory.sqlite"];
+}
 
 - (NSManagedObjectContext *)managedObjectContext {
     // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.)
