@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--Scan View Controller-->
+        <scene sceneID="yPD-ni-Vnb">
+            <objects>
+                <viewController storyboardIdentifier="LZScanerVC" id="YKZ-L8-AXR" customClass="LZScanViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WYm-1v-as1"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vot-bV-W6h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QZW-F3-Tnr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5lY-2M-7xA" userLabel="preView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x2Y-YQ-ael">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="I2D-IN-jyi">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                        <blurEffect style="dark"/>
+                                    </visualEffectView>
+                                </subviews>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eIn-pd-qGO" userLabel="scanView">
+                                <rect key="frame" x="210" y="210" width="180" height="180"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="ALT-CB-dXp"/>
+                                    <constraint firstAttribute="height" constant="180" id="gZp-NY-TGD"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击屏幕重新扫描" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aws-dr-A6e" userLabel="tipLabel">
+                                <rect key="frame" x="248" y="395" width="104" height="16"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wd1-9q-hZB" userLabel="showLabel">
+                                <rect key="frame" x="8" y="450" width="584" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="SSG-xm-eUu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wd1-9q-hZB" firstAttribute="top" secondItem="eIn-pd-qGO" secondAttribute="bottom" constant="60" id="1td-hN-doE"/>
+                            <constraint firstItem="Vot-bV-W6h" firstAttribute="top" secondItem="5lY-2M-7xA" secondAttribute="bottom" id="92H-9p-aKd"/>
+                            <constraint firstItem="5lY-2M-7xA" firstAttribute="top" secondItem="QZW-F3-Tnr" secondAttribute="top" id="97M-Gh-jVr"/>
+                            <constraint firstItem="aws-dr-A6e" firstAttribute="top" secondItem="eIn-pd-qGO" secondAttribute="bottom" constant="5" id="CWk-WX-M1e"/>
+                            <constraint firstAttribute="trailing" secondItem="5lY-2M-7xA" secondAttribute="trailing" id="cLn-oW-JPY"/>
+                            <constraint firstItem="eIn-pd-qGO" firstAttribute="centerY" secondItem="QZW-F3-Tnr" secondAttribute="centerY" id="f86-za-VMF"/>
+                            <constraint firstItem="eIn-pd-qGO" firstAttribute="centerX" secondItem="QZW-F3-Tnr" secondAttribute="centerX" id="gYG-of-GmF"/>
+                            <constraint firstItem="wd1-9q-hZB" firstAttribute="leading" secondItem="QZW-F3-Tnr" secondAttribute="leading" constant="8" id="iIS-Mf-Ouc"/>
+                            <constraint firstItem="5lY-2M-7xA" firstAttribute="leading" secondItem="QZW-F3-Tnr" secondAttribute="leading" id="kJj-RM-hzE"/>
+                            <constraint firstAttribute="trailing" secondItem="wd1-9q-hZB" secondAttribute="trailing" constant="8" id="nAI-Ni-Ftx"/>
+                            <constraint firstItem="aws-dr-A6e" firstAttribute="centerX" secondItem="QZW-F3-Tnr" secondAttribute="centerX" id="x0w-Ju-ZKD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="blurView" destination="x2Y-YQ-ael" id="g94-pc-BZc"/>
+                        <outlet property="preView" destination="5lY-2M-7xA" id="iE5-Sd-Qmh"/>
+                        <outlet property="scanRectView" destination="eIn-pd-qGO" id="eJr-vR-OUT"/>
+                        <outlet property="showLabel" destination="wd1-9q-hZB" id="I1k-Cp-rAH"/>
+                        <outlet property="tipLabel" destination="aws-dr-A6e" id="kuk-rz-MXB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8WJ-gV-ZmA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="316" y="406"/>
+        </scene>
+    </scenes>
+</document>

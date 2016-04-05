@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "LZTabBarViewController.h"
+#import "LZScanViewController.h"
 
 @interface AppDelegate ()
 
@@ -15,8 +17,34 @@
 @implementation AppDelegate
 
 
+- (void)loadMainFrame{
+    
+    LZTabBarViewController *tabVC = [[LZTabBarViewController alloc] init];
+    
+    LZScanViewController *vc1 = [LZScanViewController scanerViewController];
+    
+    vc1.view.backgroundColor = [UIColor lightGrayColor];
+    vc1.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"扫描" image:nil selectedImage:nil];
+    
+    
+    UIViewController *vc2 = [[UIViewController alloc] init];
+    vc2.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"历史" image:nil selectedImage:nil];
+    vc2.view.backgroundColor = [UIColor darkGrayColor];
+    
+    tabVC.viewControllers = @[vc1, vc2];
+    
+    
+    self.window.rootViewController = tabVC;
+    
+    
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self loadMainFrame];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

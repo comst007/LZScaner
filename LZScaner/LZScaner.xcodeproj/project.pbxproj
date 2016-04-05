@@ -10,13 +10,20 @@
 		CBB2C1F31CB3AC7300292342 /* LZScanerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB2C1F21CB3AC7300292342 /* LZScanerTests.m */; };
 		CBB2C1FE1CB3AC7300292342 /* LZScanerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB2C1FD1CB3AC7300292342 /* LZScanerUITests.m */; };
 		CBB2C2351CB3ADF500292342 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB2C21D1CB3ADF500292342 /* AppDelegate.m */; };
-		CBB2C2361CB3ADF500292342 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB2C2201CB3ADF500292342 /* ViewController.m */; };
 		CBB2C2371CB3ADF500292342 /* LZScaner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBB2C2231CB3ADF500292342 /* LZScaner.xcdatamodeld */; };
 		CBB2C2381CB3ADF500292342 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBB2C22C1CB3ADF500292342 /* Assets.xcassets */; };
 		CBB2C2391CB3ADF500292342 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBB2C22E1CB3ADF500292342 /* LaunchScreen.storyboard */; };
-		CBB2C23A1CB3ADF500292342 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBB2C2301CB3ADF500292342 /* Main.storyboard */; };
 		CBB2C23B1CB3ADF500292342 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBB2C2331CB3ADF500292342 /* Info.plist */; };
 		CBB2C23C1CB3ADF500292342 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB2C2341CB3ADF500292342 /* main.m */; };
+		CBB2C23F1CB3B38100292342 /* LZTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB2C23E1CB3B38100292342 /* LZTabBarViewController.m */; };
+		CBB2C2441CB3B48100292342 /* LZScan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBB2C2431CB3B48100292342 /* LZScan.storyboard */; };
+		CBB2C2471CB3B4C700292342 /* LZScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB2C2461CB3B4C700292342 /* LZScanViewController.m */; };
+		CBB2C2511CB3E66100292342 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB2C24A1CB3E66100292342 /* SVIndefiniteAnimatedView.m */; };
+		CBB2C2521CB3E66100292342 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CBB2C24C1CB3E66100292342 /* SVProgressHUD.bundle */; };
+		CBB2C2531CB3E66100292342 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB2C24E1CB3E66100292342 /* SVProgressHUD.m */; };
+		CBB2C2541CB3E66100292342 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB2C2501CB3E66100292342 /* SVRadialGradientLayer.m */; };
+		CBB2C2571CB3F89D00292342 /* UIView+LZFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB2C2561CB3F89D00292342 /* UIView+LZFrame.m */; };
+		CBB2C25A1CB4006900292342 /* NSString+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB2C2591CB4006900292342 /* NSString+Tools.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,14 +53,28 @@
 		CBB2C1FF1CB3AC7300292342 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBB2C21C1CB3ADF500292342 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CBB2C21D1CB3ADF500292342 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CBB2C21F1CB3ADF500292342 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		CBB2C2201CB3ADF500292342 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CBB2C2241CB3ADF500292342 /* LZScaner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LZScaner.xcdatamodel; sourceTree = "<group>"; };
 		CBB2C22C1CB3ADF500292342 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBB2C22F1CB3ADF500292342 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		CBB2C2311CB3ADF500292342 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CBB2C2331CB3ADF500292342 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBB2C2341CB3ADF500292342 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CBB2C23D1CB3B38100292342 /* LZTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZTabBarViewController.h; sourceTree = "<group>"; };
+		CBB2C23E1CB3B38100292342 /* LZTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZTabBarViewController.m; sourceTree = "<group>"; };
+		CBB2C2431CB3B48100292342 /* LZScan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LZScan.storyboard; sourceTree = "<group>"; };
+		CBB2C2451CB3B4C700292342 /* LZScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZScanViewController.h; sourceTree = "<group>"; };
+		CBB2C2461CB3B4C700292342 /* LZScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZScanViewController.m; sourceTree = "<group>"; };
+		CBB2C2491CB3E66100292342 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		CBB2C24A1CB3E66100292342 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		CBB2C24B1CB3E66100292342 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		CBB2C24C1CB3E66100292342 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		CBB2C24D1CB3E66100292342 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		CBB2C24E1CB3E66100292342 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		CBB2C24F1CB3E66100292342 /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
+		CBB2C2501CB3E66100292342 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
+		CBB2C2551CB3F89D00292342 /* UIView+LZFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LZFrame.h"; sourceTree = "<group>"; };
+		CBB2C2561CB3F89D00292342 /* UIView+LZFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LZFrame.m"; sourceTree = "<group>"; };
+		CBB2C2581CB4006900292342 /* NSString+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Tools.h"; sourceTree = "<group>"; };
+		CBB2C2591CB4006900292342 /* NSString+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Tools.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,8 +178,10 @@
 		CBB2C21E1CB3ADF500292342 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CBB2C21F1CB3ADF500292342 /* ViewController.h */,
-				CBB2C2201CB3ADF500292342 /* ViewController.m */,
+				CBB2C23D1CB3B38100292342 /* LZTabBarViewController.h */,
+				CBB2C23E1CB3B38100292342 /* LZTabBarViewController.m */,
+				CBB2C2451CB3B4C700292342 /* LZScanViewController.h */,
+				CBB2C2461CB3B4C700292342 /* LZScanViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -188,6 +211,7 @@
 		CBB2C2261CB3ADF500292342 /* Publics */ = {
 			isa = PBXGroup;
 			children = (
+				CBB2C2481CB3E66100292342 /* SVProgressHUD */,
 			);
 			path = Publics;
 			sourceTree = "<group>";
@@ -202,6 +226,10 @@
 		CBB2C2281CB3ADF500292342 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				CBB2C2581CB4006900292342 /* NSString+Tools.h */,
+				CBB2C2591CB4006900292342 /* NSString+Tools.m */,
+				CBB2C2551CB3F89D00292342 /* UIView+LZFrame.h */,
+				CBB2C2561CB3F89D00292342 /* UIView+LZFrame.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -234,7 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				CBB2C22E1CB3ADF500292342 /* LaunchScreen.storyboard */,
-				CBB2C2301CB3ADF500292342 /* Main.storyboard */,
+				CBB2C2431CB3B48100292342 /* LZScan.storyboard */,
 			);
 			path = xibs;
 			sourceTree = "<group>";
@@ -246,6 +274,21 @@
 				CBB2C2341CB3ADF500292342 /* main.m */,
 			);
 			path = Surpporting;
+			sourceTree = "<group>";
+		};
+		CBB2C2481CB3E66100292342 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				CBB2C2491CB3E66100292342 /* SVIndefiniteAnimatedView.h */,
+				CBB2C24A1CB3E66100292342 /* SVIndefiniteAnimatedView.m */,
+				CBB2C24B1CB3E66100292342 /* SVProgressHUD-Prefix.pch */,
+				CBB2C24C1CB3E66100292342 /* SVProgressHUD.bundle */,
+				CBB2C24D1CB3E66100292342 /* SVProgressHUD.h */,
+				CBB2C24E1CB3E66100292342 /* SVProgressHUD.m */,
+				CBB2C24F1CB3E66100292342 /* SVRadialGradientLayer.h */,
+				CBB2C2501CB3E66100292342 /* SVRadialGradientLayer.m */,
+			);
+			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,9 +394,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBB2C2521CB3E66100292342 /* SVProgressHUD.bundle in Resources */,
 				CBB2C23B1CB3ADF500292342 /* Info.plist in Resources */,
-				CBB2C23A1CB3ADF500292342 /* Main.storyboard in Resources */,
 				CBB2C2381CB3ADF500292342 /* Assets.xcassets in Resources */,
+				CBB2C2441CB3B48100292342 /* LZScan.storyboard in Resources */,
 				CBB2C2391CB3ADF500292342 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,10 +423,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBB2C2361CB3ADF500292342 /* ViewController.m in Sources */,
+				CBB2C23F1CB3B38100292342 /* LZTabBarViewController.m in Sources */,
+				CBB2C2471CB3B4C700292342 /* LZScanViewController.m in Sources */,
+				CBB2C2571CB3F89D00292342 /* UIView+LZFrame.m in Sources */,
 				CBB2C2351CB3ADF500292342 /* AppDelegate.m in Sources */,
+				CBB2C2541CB3E66100292342 /* SVRadialGradientLayer.m in Sources */,
+				CBB2C2531CB3E66100292342 /* SVProgressHUD.m in Sources */,
 				CBB2C23C1CB3ADF500292342 /* main.m in Sources */,
+				CBB2C25A1CB4006900292342 /* NSString+Tools.m in Sources */,
 				CBB2C2371CB3ADF500292342 /* LZScaner.xcdatamodeld in Sources */,
+				CBB2C2511CB3E66100292342 /* SVIndefiniteAnimatedView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,14 +474,6 @@
 				CBB2C22F1CB3ADF500292342 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		CBB2C2301CB3ADF500292342 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CBB2C2311CB3ADF500292342 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

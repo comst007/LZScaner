@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  LZScanViewController.h
 //  LZScaner
 //
 //  Created by comst on 16/4/5.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface LZScanViewController : UIViewController
 
++ (instancetype)scanerViewController;
 
 @end
-
