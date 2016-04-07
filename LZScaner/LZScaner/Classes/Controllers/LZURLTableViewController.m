@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "LZURLEntity+CoreDataProperties.h"
 #import "UIView+LZFrame.h"
+#import "LZURLCell.h"
 
 @interface LZURLTableViewController ()<NSFetchedResultsControllerDelegate>
 
@@ -28,6 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self baseConfig];
     [self configFetchVC];
     [self configTableView];
     // Uncomment the following line to preserve selection between presentations.
@@ -38,9 +40,15 @@
 }
 
 
+- (void)baseConfig{
+    self.navigationItem.title = @"Scan History";
+    
+}
+
 - (void)configTableView{
+    self.tableView.backgroundColor = [UIColor colorWithRed:64 / 255.0 green:64 / 255.0 blue:64 / 255.0 alpha:1];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"LZURLCell"];
+    [self.tableView registerClass:[LZURLCell class] forCellReuseIdentifier:@"LZURLCell"];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
@@ -58,10 +66,6 @@
     [self.fetchVC performFetch:nil];
 }
 
-//- (void)viewDidLayoutSubviews{
-//    [super viewDidLayoutSubviews];
-//    self.view.y = 20;
-//}
 
 #pragma mark - fetchVC delegate
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller{
@@ -122,6 +126,25 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LZURLCell"];
     [self configCell:cell atIndexPath:indexPath];
     return cell;
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return UITableViewCellEditingStyleDelete;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        LZURLEntity *selectItem = [self.fetchVC objectAtIndexPath:indexPath];
+        
+        [[AppDelegate appDelegate].managedObjectContext deleteObject:selectItem];
+        [[AppDelegate appDelegate] saveContext];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+     LZURLEntity *selectItem = [self.fetchVC objectAtIndexPath:indexPath];
+    NSURL *url = [NSURL URLWithString:selectItem.urlString];
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 - (void)configCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath{

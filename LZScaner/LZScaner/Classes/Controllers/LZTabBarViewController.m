@@ -17,20 +17,27 @@
 
 + (void)initialize{
     
+    UITabBar *tabBar =  [UITabBar appearance];
+    [tabBar setBackgroundImage:[UIImage imageNamed:@"tabBarImage"]];
+    
+    
     UITabBarItem *itemAppearance = [UITabBarItem appearance];
+    UIColor *textColorSelected = [UIColor colorWithRed:0 green:122 / 255.0 blue:255 / 255.0 alpha:1];
+    
     NSDictionary *normalAttr = @{
                                  NSFontAttributeName :[UIFont systemFontOfSize:12],
-                                 NSForegroundColorAttributeName : [UIColor lightGrayColor]
+                                 NSForegroundColorAttributeName : [UIColor whiteColor]
                                  };
     
     NSDictionary *selectAttr = @{
                                  NSFontAttributeName : [UIFont systemFontOfSize:12],
-                                 NSForegroundColorAttributeName : [UIColor darkGrayColor]
+                                 NSForegroundColorAttributeName : textColorSelected
                                  };
     
     
     [itemAppearance setTitleTextAttributes:normalAttr forState:UIControlStateNormal];
     [itemAppearance setTitleTextAttributes:selectAttr forState:UIControlStateSelected];
+    
 
 }
 

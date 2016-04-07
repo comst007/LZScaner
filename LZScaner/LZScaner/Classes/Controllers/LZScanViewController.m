@@ -74,6 +74,7 @@
 }
 
 - (void)baseConfig{
+    self.navigationItem.title = @"QRScanner";
     self.showLabel.layer.borderColor = [UIColor blueColor].CGColor;
     self.showLabel.layer.borderWidth = 2;
     self.tipLabel.hidden = YES;
@@ -90,13 +91,20 @@
     self.scanRectView.layer.borderWidth = 2;
     
     self.indicatorView = [[UIView alloc] init];
-    self.indicatorView.backgroundColor = [UIColor greenColor];
+    self.indicatorView.backgroundColor = [UIColor clearColor];
     self.indicatorView.height = 2;
     self.indicatorView.x = 10;
     self.indicatorView.y = 0;
     self.indicatorView.width = 160;
     self.indicatorView.hidden = YES;
     [self.scanRectView addSubview:self.indicatorView];
+    
+    UIImageView *indicatorImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"indicatorView"]];
+    [self.indicatorView addSubview:indicatorImageView];
+    indicatorImageView.x = 0;
+    indicatorImageView.y = 0;
+    indicatorImageView.width = self.indicatorView.width;
+    indicatorImageView.height = self.indicatorView.height;
     
 }
 

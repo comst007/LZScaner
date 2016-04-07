@@ -10,6 +10,7 @@
 #import "LZTabBarViewController.h"
 #import "LZScanViewController.h"
 #import "LZURLTableViewController.h"
+#import "LZNavigationController.h"
 
 @interface AppDelegate ()
 
@@ -27,18 +28,19 @@
     LZTabBarViewController *tabVC = [[LZTabBarViewController alloc] init];
     
     LZScanViewController *vc1 = [LZScanViewController scanerViewController];
-    vc1.view.backgroundColor = [UIColor lightGrayColor];
     
-    UINavigationController *navC1 = [[UINavigationController alloc] initWithRootViewController:vc1];
-    navC1.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"扫描" image:nil selectedImage:nil];
+    
+    LZNavigationController *navC1 = [[LZNavigationController alloc] initWithRootViewController:vc1];
+    
+    navC1.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"扫描" image:[UIImage imageNamed:@"tabBarItemScanNormal" ] selectedImage:[UIImage imageNamed:@"tabBarItemScanSelected"]];
     
     LZURLTableViewController *vc2 = [LZURLTableViewController urlTableViewController];
    
    
-    vc2.view.backgroundColor = [UIColor darkGrayColor];
     
-    UINavigationController *navC2 = [[UINavigationController alloc] initWithRootViewController:vc2];
-    navC2.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"历史" image:nil selectedImage:nil];
+    
+    LZNavigationController *navC2 = [[LZNavigationController alloc] initWithRootViewController:vc2];
+    navC2.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"历史" image:[UIImage imageNamed:@"tabBarItemhistoryNormal"] selectedImage:[UIImage imageNamed:@"tabBarItemhistorySelected"]];
     
     
     tabVC.viewControllers = @[navC1, navC2];
